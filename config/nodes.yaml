@@ -1,0 +1,36 @@
+nodes:
+  - node_id: node-web-local
+    name: Local Web
+    role: edge-web
+    host: 127.0.0.1
+    checks:
+      - type: http
+        target: http://127.0.0.1:8000/healthz
+      - type: tcp
+        target: 127.0.0.1:8000
+
+  - node_id: node-ssh-demo
+    name: SSH Demo
+    role: mgmt
+    host: 127.0.0.1
+    checks:
+      - type: tcp
+        target: 127.0.0.1:22
+
+  - node_id: node-dns-latency
+    name: DNS Latency
+    role: dns
+    host: 8.8.8.8
+    checks:
+      - type: latency
+        target: 8.8.8.8
+
+  - node_id: node-failing-demo
+    name: Failing Demo Node
+    role: backup
+    host: 127.0.0.1
+    checks:
+      - type: tcp
+        target: 127.0.0.1:65530
+      - type: http
+        target: http://127.0.0.1:65531/health

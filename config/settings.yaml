@@ -1,0 +1,14 @@
+app_name: AutoNOC-X
+safe_mode: true
+scan_interval_seconds: 30
+http_timeout_seconds: 3
+tcp_timeout_seconds: 2
+latency_timeout_seconds: 2
+rules:
+  cpu_critical_threshold: 90
+  memory_critical_threshold: 90
+  disk_critical_threshold: 90
+  latency_warning_ms: 120
+  latency_critical_ms: 250
+  http_down_severity: critical
+  tcp_down_severity: high
